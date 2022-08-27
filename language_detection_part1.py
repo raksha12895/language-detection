@@ -1,11 +1,25 @@
 # -*- coding: utf-8 -*-
 """
 Created on Sat Aug 27 14:34:10 2022
-
 @author: raksha
 """
-
-
+import csv
+with open('letter-frequency-per-language.csv', newline='') as csvfile:
+    myCSV = csv.reader(csvfile, delimiter=',')
+    csvDict = {}
+    for row in myCSV:
+        csvDict[row[0]] = row[1]
+        """ key = row[0]
+        value = row[1]"""
+        
+    print(csvDict)
+        
+        
+        
+    
+   
+    
+   
 def openFilewithReadAccess(fileName, fileEncoding):
     try:
         file = open(fileName, 'r', encoding=fileEncoding)
@@ -43,8 +57,9 @@ def getSortedLetterFrequencyFingerPrint(myString):
 
 
 
-file_a = openFilewithReadAccess("english-text.txt", "utf8")
+file_a = openFilewithReadAccess("dutch-text.txt", "utf8")
 if (file_a != None):
     s = readStringFromFile(file_a)
     s = makeAllCharactersLowerCase(s)
     getSortedLetterFrequencyFingerPrint(s)
+
